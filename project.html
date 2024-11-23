@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- jsPDF Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+<body>
+<div class="container">
+    <h1>Student Marks Management System</h1>
+    <div id="form-section">
+        <label for="rollNumber">Enter Roll Number:</label>
+        <input type="number" id="rollNumber" min="1" required>
+
+        <label for="name">Enter Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="marks">Enter Marks:</label>
+        <input type="number" id="marks" min="0" max="100" required>
+
+        <button onclick="addMarks()">Submit Marks</button>
+    </div>
+
+    <div id="search-section">
+        <label for="search">Search by Name or Roll Number:</label>
+        <input type="text" id="search" oninput="filterTable()">
+    </div>
+
+    <div id="marksList">
+        <h2>Marks List</h2>
+        <table id="marksOutput">
+            <thead>
+            <tr>
+                <th onclick="sortTable(0)">Roll Number &#x25B2;</th>
+                <th onclick="sortTable(1)">Name &#x25B2;</th>
+                <th onclick="sortTable(2)">Marks &#x25B2;</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="chartSection">
+        <h2>Performance Chart</h2>
+        <canvas id="marksChart"></canvas>
+    </div>
+
+    <button onclick="downloadPDF()" id="downloadPDFButton" style="display:none;">Download PDF</button>
+    <button onclick="downloadTextFile()" id="downloadTextButton" style="display:none;">Download Text File</button>
+    <button onclick="clearAllData()">Clear All Data</button>
+</div>
+
+<script src="js/script.js"></script> <!-- External JavaScript -->
+</body>
+</html>
